@@ -105,20 +105,7 @@ class _ApartmentResidentsCard extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       margin: const EdgeInsets.only(bottom: 16),
       child: Container(
-        decoration: BoxDecoration(
-          color: AppColors.adaptiveCard(context),
-          gradient: AppColors.isDark(context)
-              ? const LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    AppColors.darkCard,
-                    Color(0xFF1A1F25),
-                    AppColors.darkCard,
-                  ],
-                )
-              : null,
-        ),
+        decoration: AppColors.cardGradient(context),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

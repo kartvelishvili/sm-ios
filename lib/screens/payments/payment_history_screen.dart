@@ -109,7 +109,7 @@ class _PaymentHistoryScreenState extends State<PaymentHistoryScreen> {
               ],
             ),
           ),
-          const Divider(height: 1),
+          Divider(height: 1, color: AppColors.adaptiveBorder(context)),
           // List body
           Expanded(
             child: provider.isLoading && provider.history.isEmpty

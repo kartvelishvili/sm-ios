@@ -227,7 +227,7 @@ class _SettingsScreenState extends State<SettingsScreen>
                           );
                         },
                       ),
-                      const Divider(height: 1, indent: 60),
+                      Divider(height: 1, indent: 60, color: AppColors.adaptiveBorder(context)),
                       Consumer<ThemeProvider>(
                         builder: (context, themeProv, _) {
                           final String subtitle;
@@ -248,7 +248,7 @@ class _SettingsScreenState extends State<SettingsScreen>
                           );
                         },
                       ),
-                      const Divider(height: 1, indent: 60),
+                      Divider(height: 1, indent: 60, color: AppColors.adaptiveBorder(context)),
                       _ActionTile(
                         icon: Icons.phone_rounded,
                         iconBgColor: AppColors.success,
@@ -256,7 +256,7 @@ class _SettingsScreenState extends State<SettingsScreen>
                         onTap: () =>
                             Navigator.pushNamed(context, '/change-phone'),
                       ),
-                      const Divider(height: 1, indent: 60),
+                      Divider(height: 1, indent: 60, color: AppColors.adaptiveBorder(context)),
                       _ActionTile(
                         icon: Icons.lock_rounded,
                         iconBgColor: AppColors.warning,
@@ -422,7 +422,7 @@ class _SettingsScreenState extends State<SettingsScreen>
                         titleColor: AppColors.warning,
                         onTap: () => _logout(context, allDevices: false),
                       ),
-                      const Divider(height: 1, indent: 60),
+                      Divider(height: 1, indent: 60, color: AppColors.adaptiveBorder(context)),
                       _ActionTile(
                         icon: Icons.logout_rounded,
                         iconBgColor: AppColors.error,
@@ -1029,25 +1029,27 @@ class _DetailTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, size: 18, color: AppColors.adaptiveTextMuted(context)),
+          Padding(
+            padding: const EdgeInsets.only(top: 2),
+            child: Icon(icon, size: 18, color: AppColors.adaptiveTextMuted(context)),
+          ),
           const SizedBox(width: 12),
-          Expanded(
-            child: Text(
-              label,
-              style: TextStyle(
-                color: AppColors.adaptiveTextSecondary(context),
-                fontSize: 13,
-              ),
+          Text(
+            label,
+            style: TextStyle(
+              color: AppColors.adaptiveTextSecondary(context),
+              fontSize: 13,
             ),
           ),
           const SizedBox(width: 8),
-          Flexible(
+          Expanded(
             child: Text(
               value,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
-                fontSize: 14,
+                fontSize: 13,
                 color: valueColor ?? AppColors.adaptiveTextPrimary(context),
               ),
               textAlign: TextAlign.end,

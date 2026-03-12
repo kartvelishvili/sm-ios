@@ -204,17 +204,7 @@ class _AccessStatusCard extends StatelessWidget {
     return Card(
       clipBehavior: Clip.antiAlias,
       child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              color.withAlpha(15),
-              AppColors.darkCard,
-              color.withAlpha(8),
-            ],
-          ),
-        ),
+        decoration: AppColors.cardGradient(context, accent: color),
         child: Column(
           children: [
             // Top accent line
@@ -322,17 +312,7 @@ class _CreditDaysCard extends StatelessWidget {
     return Card(
       clipBehavior: Clip.antiAlias,
       child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              accentColor.withAlpha(12),
-              AppColors.darkCard,
-              accentColor.withAlpha(6),
-            ],
-          ),
-        ),
+        decoration: AppColors.cardGradient(context, accent: accentColor),
         child: Column(
           children: [
             // Accent line
@@ -428,7 +408,7 @@ class _CreditDaysCard extends StatelessWidget {
                         Text(
                           s.creditDaysRemaining(credit.daysRemaining),
                           style: TextStyle(
-                            color: Colors.white.withAlpha(180),
+                            color: AppColors.adaptiveTextSecondary(context),
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
                           ),
@@ -445,7 +425,7 @@ class _CreditDaysCard extends StatelessWidget {
                     child: LinearProgressIndicator(
                       value: progress.clamp(0.0, 1.0),
                       minHeight: 6,
-                      backgroundColor: Colors.white.withAlpha(15),
+                      backgroundColor: AppColors.adaptiveBorder(context).withAlpha(80),
                       valueColor:
                           AlwaysStoppedAnimation<Color>(accentColor),
                     ),
@@ -454,16 +434,16 @@ class _CreditDaysCard extends StatelessWidget {
                   const SizedBox(height: 16),
 
                   // Info rows
-                  _creditInfoRow(
+                  _creditInfoRow(context,
                       s.creditAmount, '${credit.amount.toStringAsFixed(0)} ₾'),
                   const SizedBox(height: 8),
-                  _creditInfoRow(s.creditDailyRate,
+                  _creditInfoRow(context, s.creditDailyRate,
                       '${credit.dailyRate.toStringAsFixed(0)} ₾/${s.creditDailyRate.contains('ტარიფი') ? 'დღე' : 'day'}'),
                   const SizedBox(height: 8),
-                  _creditInfoRow(
+                  _creditInfoRow(context,
                       s.creditDaysGranted, '${credit.daysGranted}'),
                   const SizedBox(height: 8),
-                  _creditInfoRow(
+                  _creditInfoRow(context,
                       s.creditPeriod, '${credit.startDate} → ${credit.endDate}'),
 
                   // Gap warning
@@ -510,7 +490,7 @@ class _CreditDaysCard extends StatelessWidget {
     );
   }
 
-  Widget _creditInfoRow(String label, String value) {
+  Widget _creditInfoRow(BuildContext context, String label, String value) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -518,7 +498,7 @@ class _CreditDaysCard extends StatelessWidget {
           child: Text(
             label,
             style: TextStyle(
-              color: Colors.white.withAlpha(140),
+              color: AppColors.adaptiveTextSecondary(context),
               fontSize: 13,
             ),
             overflow: TextOverflow.ellipsis,
@@ -528,8 +508,8 @@ class _CreditDaysCard extends StatelessWidget {
         Flexible(
           child: Text(
             value,
-            style: const TextStyle(
-              color: Colors.white,
+            style: TextStyle(
+              color: AppColors.adaptiveTextPrimary(context),
               fontSize: 13,
               fontWeight: FontWeight.w600,
             ),
@@ -565,17 +545,7 @@ class _BillingCard extends StatelessWidget {
     return Card(
       clipBehavior: Clip.antiAlias,
       child: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              AppColors.darkCard,
-              Color(0xFF1A1F25),
-              AppColors.darkCard,
-            ],
-          ),
-        ),
+        decoration: AppColors.cardGradient(context),
         child: Column(
           children: [
             // Gold accent bar
@@ -683,9 +653,9 @@ class _BillingCard extends StatelessWidget {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          AppColors.darkBorder.withAlpha(0),
+                          AppColors.adaptiveBorder(context).withAlpha(0),
                           AppColors.primary.withAlpha(50),
-                          AppColors.darkBorder.withAlpha(0),
+                          AppColors.adaptiveBorder(context).withAlpha(0),
                         ],
                       ),
                     ),
@@ -767,7 +737,7 @@ class _BillingCard extends StatelessWidget {
                               Container(
                                 height: 8,
                                 decoration: BoxDecoration(
-                                  color: AppColors.darkBorder.withAlpha(80),
+                                  color: AppColors.adaptiveBorder(context).withAlpha(80),
                                   borderRadius: BorderRadius.circular(6),
                                 ),
                               ),
@@ -912,7 +882,7 @@ class _FeeRow extends StatelessWidget {
           Expanded(
             child: Text(label,
                 style: TextStyle(
-                  color: AppColors.darkTextSecondary,
+                  color: AppColors.adaptiveTextSecondary(context),
                   fontSize: 14,
                 )),
           ),
@@ -1061,17 +1031,8 @@ class _ComplexProgressWidgetState extends State<_ComplexProgressWidget>
           child: Card(
             clipBehavior: Clip.antiAlias,
             child: Container(
-              decoration: BoxDecoration(
+              decoration: AppColors.cardGradient(context).copyWith(
                 borderRadius: BorderRadius.circular(12),
-                gradient: const LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    AppColors.darkCard,
-                    Color(0xFF1A1F25),
-                    AppColors.darkCard,
-                  ],
-                ),
               ),
               child: Padding(
                 padding: const EdgeInsets.all(20),
@@ -1110,7 +1071,7 @@ class _ComplexProgressWidgetState extends State<_ComplexProgressWidget>
                               Text(
                                 s.complexStats,
                                 style: TextStyle(
-                                  color: AppColors.darkTextSecondary,
+                                  color: AppColors.adaptiveTextSecondary(context),
                                   fontWeight: FontWeight.w500,
                                   fontSize: 12,
                                 ),
@@ -1147,7 +1108,7 @@ class _ComplexProgressWidgetState extends State<_ComplexProgressWidget>
                           style: Theme.of(context).textTheme.headlineLarge?.copyWith(
                             fontWeight: FontWeight.w900,
                             fontSize: 42,
-                            color: Colors.white,
+                            color: AppColors.adaptiveTextPrimary(context),
                             height: 1,
                           ),
                         ),
@@ -1156,8 +1117,8 @@ class _ComplexProgressWidgetState extends State<_ComplexProgressWidget>
                           padding: const EdgeInsets.only(bottom: 6),
                           child: Text(
                             s.paid,
-                            style: const TextStyle(
-                              color: AppColors.darkTextSecondary,
+                            style: TextStyle(
+                              color: AppColors.adaptiveTextSecondary(context),
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
                             ),
@@ -1189,7 +1150,7 @@ class _ComplexProgressWidgetState extends State<_ComplexProgressWidget>
                               // Track
                               Container(
                                 decoration: BoxDecoration(
-                                  color: AppColors.darkBorder,
+                                  color: AppColors.adaptiveBorder(context),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                               ),
@@ -1310,17 +1271,17 @@ class _AnimatedStatTile extends StatelessWidget {
               const SizedBox(height: 6),
               Text(
                 value,
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.w800,
                   fontSize: 18,
-                  color: Colors.white,
+                  color: AppColors.adaptiveTextPrimary(context),
                 ),
               ),
               const SizedBox(height: 2),
               Text(
                 label,
-                style: const TextStyle(
-                  color: AppColors.darkTextSecondary,
+                style: TextStyle(
+                  color: AppColors.adaptiveTextSecondary(context),
                   fontSize: 11,
                 ),
                 textAlign: TextAlign.center,
@@ -1345,17 +1306,7 @@ class _ResidentsCard extends StatelessWidget {
     return Card(
       clipBehavior: Clip.antiAlias,
       child: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              AppColors.darkCard,
-              Color(0xFF1A1F25),
-              AppColors.darkCard,
-            ],
-          ),
-        ),
+        decoration: AppColors.cardGradient(context),
         child: Padding(
           padding: const EdgeInsets.all(18),
           child: Column(
@@ -1383,7 +1334,7 @@ class _ResidentsCard extends StatelessWidget {
                   ),
                   InkWell(
                     borderRadius: BorderRadius.circular(20),
-                    onTap: () => Navigator.pushNamed(context, '/residents'),
+                    onTap: () => Navigator.of(context, rootNavigator: true).pushNamed('/residents'),
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                       decoration: BoxDecoration(
@@ -1427,12 +1378,12 @@ class _ResidentsCard extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: r.isMe
                           ? AppColors.primary.withAlpha(8)
-                          : AppColors.darkSurface.withAlpha(120),
+                          : AppColors.adaptiveSurface(context).withAlpha(120),
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
                         color: r.isMe
                             ? AppColors.primary.withAlpha(40)
-                            : AppColors.darkBorder.withAlpha(60),
+                            : AppColors.adaptiveBorder(context).withAlpha(60),
                       ),
                     ),
                     child: Row(
@@ -1741,7 +1692,7 @@ class _NotifBellIconState extends State<_NotifBellIcon> {
         child: const Icon(Icons.notifications_outlined),
       ),
       onPressed: () {
-        Navigator.of(context).pushNamed('/inbox');
+        Navigator.of(context, rootNavigator: true).pushNamed('/inbox');
       },
     );
   }

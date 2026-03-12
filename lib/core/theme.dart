@@ -99,6 +99,29 @@ class AppColors {
     );
   }
 
+  /// Standard card gradient: dark mode → subtle gradient; light mode → flat surface.
+  static BoxDecoration cardGradient(BuildContext context, {Color? accent}) {
+    if (!isDark(context)) {
+      return BoxDecoration(color: surface);
+    }
+    if (accent != null) {
+      return BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [accent.withAlpha(15), darkCard, accent.withAlpha(8)],
+        ),
+      );
+    }
+    return const BoxDecoration(
+      gradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [darkCard, Color(0xFF1A1F25), darkCard],
+      ),
+    );
+  }
+
   // ── Gradients ──
   static const LinearGradient goldGradient = LinearGradient(
     begin: Alignment.topLeft,

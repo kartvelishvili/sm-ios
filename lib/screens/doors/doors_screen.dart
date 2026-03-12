@@ -207,7 +207,7 @@ class _SectionHeader extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 12),
-        const Expanded(child: Divider(height: 1)),
+        Expanded(child: Divider(height: 1, color: AppColors.adaptiveBorder(context))),
       ],
     );
   }
