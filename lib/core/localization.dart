@@ -335,6 +335,28 @@ class AppStrings {
           'Are you sure you want to log out from all devices?');
   String get imageUpdated => _t('სურათი განახლდა', 'Image Updated');
   String get imageUploadFailed => _t('სურათის ატვირთვა ვერ მოხერხდა', 'Image upload failed');
+
+  // Delete Account
+  String get deleteAccount => _t('ანგარიშის წაშლა', 'Delete Account');
+  String get deleteAccountTitle => _t('ანგარიშის წაშლის მოთხოვნა', 'Account Deletion Request');
+  String get deleteWarning => _t('ანგარიშის წაშლა შეუქცევადია. ყველა მონაცემი სამუდამოდ წაიშლება.', 'Account deletion is irreversible. All data will be permanently deleted.');
+  String get deleteInfoTitle => _t('რა მოხდება ანგარიშის წაშლის შემდეგ?', 'What happens after account deletion?');
+  String get deleteInfoBody => _t('• თქვენი პერსონალური მონაცემები წაიშლება\n• გადახდების ისტორია წაიშლება\n• აპლიკაციაში ავტორიზაცია ვეღარ მოხერხდება\n• მოთხოვნის დამუშავებას შეიძლება დასჭირდეს 30 სამუშაო დღე', '• Your personal data will be deleted\n• Payment history will be removed\n• You will no longer be able to log in\n• Processing may take up to 30 business days');
+  String get deleteReasonLabel => _t('მიუთითეთ წაშლის მიზეზი:', 'Please select a reason:');
+  String get deleteReasonNoUse => _t('აღარ ვიყენებ სერვისს', 'I no longer use the service');
+  String get deleteReasonPrivacy => _t('კონფიდენციალურობის შეშფოთება', 'Privacy concerns');
+  String get deleteReasonOtherService => _t('სხვა სერვისზე გადავედი', 'Switched to another service');
+  String get deleteReasonDissatisfied => _t('უკმაყოფილო ვარ სერვისით', 'Dissatisfied with the service');
+  String get deleteReasonOther => _t('სხვა მიზეზი', 'Other reason');
+  String get deleteDetailsHint => _t('დამატებითი კომენტარი (არასავალდებულო)', 'Additional comments (optional)');
+  String get deleteConfirmCheckbox => _t('ვადასტურებ, რომ მინდა ჩემი ანგარიშისა და ყველა მონაცემის სამუდამოდ წაშლა', 'I confirm that I want to permanently delete my account and all data');
+  String get deleteConfirmButton => _t('დიახ, წაშალე', 'Yes, Delete');
+  String get deleteSubmitButton => _t('წაშლის მოთხოვნის გაგზავნა', 'Send Deletion Request');
+  String get deleteSelectReason => _t('გთხოვთ აირჩიოთ მიზეზი', 'Please select a reason');
+  String get deleteConfirmRequired => _t('გთხოვთ დაადასტუროთ წაშლა', 'Please confirm deletion');
+  String get deleteFinalWarning => _t('ეს მოქმედება შეუქცევადია. ნამდვილად გსურთ ანგარიშის წაშლის მოთხოვნის გაგზავნა?', 'This action is irreversible. Are you sure you want to send an account deletion request?');
+  String get deleteRequestSent => _t('წაშლის მოთხოვნა წარმატებით გაიგზავნა', 'Deletion request sent successfully');
+  String get deleteRequestFailed => _t('მოთხოვნის გაგზავნა ვერ მოხერხდა', 'Failed to send request');
   String get language => _t('ენა', 'Language');
   String get themeLabel => _t('თემა', 'Theme');
   String get themeDark => _t('მუქი', 'Dark');

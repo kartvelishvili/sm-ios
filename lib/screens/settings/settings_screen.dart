@@ -433,6 +433,20 @@ class _SettingsScreenState extends State<SettingsScreen>
                     ],
                   ),
                 )),
+                const SizedBox(height: 16),
+
+                // ═══ Delete Account ═══
+                _buildFadeSlide(0.7, 1.0, child: Card(
+                  clipBehavior: Clip.antiAlias,
+                  child: _ActionTile(
+                    icon: Icons.delete_forever_rounded,
+                    iconBgColor: AppColors.error,
+                    title: s.deleteAccount,
+                    titleColor: AppColors.error,
+                    onTap: () => Navigator.of(context, rootNavigator: true)
+                        .pushNamed('/delete-account'),
+                  ),
+                )),
                 const SizedBox(height: 40),
               ],
             );

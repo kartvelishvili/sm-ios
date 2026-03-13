@@ -29,6 +29,7 @@ import 'screens/notifications/notifications_screen.dart';
 import 'screens/messages/messages_screen.dart';
 import 'screens/polls/polls_screen.dart';
 import 'screens/inbox/inbox_screen.dart';
+import 'screens/settings/delete_account_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -129,6 +130,7 @@ class SmartLuxyApp extends StatelessWidget {
                 '/messages': (_) => const MessagesScreen(),
                 '/polls': (_) => const PollsScreen(),
                 '/inbox': (_) => const InboxScreen(),
+                '/delete-account': (_) => const DeleteAccountScreen(),
               },
             ),
           );
